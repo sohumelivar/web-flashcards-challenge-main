@@ -6,13 +6,15 @@ module.exports = function MainPage({ title, topPlayers }) {
     <Layout title={title}>
       <div className="container">
         <h1>Добро пожаловать в увлекательную игру!</h1>
-        <a className="registationBar" href="/">Registation</a>
-        <a className="loginBar" href="/">Login</a>
+        <a className="registationBar" href="/registration_form">Registation</a>
+        <a className="loginBar" href="/enter">Login</a>
       </div>
       <div>
-        <table className="table table-striped">
-          {topPlayers}
-        </table>
+        Лучшие игроки:
+        <p></p>
+        {topPlayers.map((el) => (
+          <p>{el.username} - {el.best_score}</p>
+        ))}
       </div>
     </Layout>
   );

@@ -5,10 +5,12 @@ const MainPage = require('../views/MainPage');
 
 router.get('/', async (req, res) => {
   try {
-    const topPlayers = await User.findAll();
-    renderTemplate(MainPage, { topPlayers }, res);
+    const AllPlayers = await User.findAll();
+    const topPlayers = AllPlayers.map((user) => user.dataValues);
+    console.log(topPlayers);
+    renderTemplate(MainPage, { title: 'Main', topPlayers }, res);
   } catch (error) {
-    console.log('_______Error_______ ', error);
+    console.log('!!!!_______Error_______!!!! ', error);
   }
 });
 
