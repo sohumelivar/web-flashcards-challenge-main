@@ -23,12 +23,15 @@ module.exports = {
       },
       best_score: {
         type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
       last_score: {
         type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
       games: {
         type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
       createdAt: {
         allowNull: false,
