@@ -1,6 +1,7 @@
 require('@babel/register');
 const express = require('express');
 
+const registration = require('./routers/registration.router');
 
 const enterUser = require('./routers/enterUser.router');
 
@@ -13,6 +14,7 @@ const PORT = process.env.PORT ?? 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/registration_form', registration);
 
 
 app.use('/', enterUser);
