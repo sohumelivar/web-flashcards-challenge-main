@@ -5,6 +5,8 @@ module.exports = {
       email: 'sohumelivar@gmail.com',
       username: 'Givi',
       password: '123',
+      best_score: 1,
+      last_score: 1,
       createdAt: new Date(),
       updatedAt: new Date(),
     }]);
