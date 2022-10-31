@@ -7,6 +7,8 @@ const enterUser = require('./routers/enterUser.router');
 
 const topUserRouter = require('./routers/topUserRender.router');
 
+const deckRender = require('./routers/deckRender.router');
+
 const app = express();
 
 const PORT = process.env.PORT ?? 3001;
@@ -18,6 +20,7 @@ app.use('/registration_form', registration);
 app.use('/', enterUser);
 
 app.use('/', topUserRouter);
+app.use('/decks', deckRender);
 
 // app.get('*', (req, res) => res.redirect('/'));
 
