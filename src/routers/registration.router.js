@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
     const findEmail = await User.findAll({ where: { email: req.body.email } });
     if (findEmail.length === 0) {
       const user = await User.create({ email: req.body.email, username: req.body.username, password: req.body.password });
-      res.redirect('/profile');
+      res.redirect('/123');
     } else if (findEmail.length > 0) {
       res.redirect('/registration_form?error=test');
     }
