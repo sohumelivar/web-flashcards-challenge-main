@@ -2,7 +2,7 @@ require('@babel/register');
 const express = require('express');
 
 const registration = require('./routers/registration.router');
-
+const question = require('./routers/questions.router');
 const enterUser = require('./routers/enterUser.router');
 
 const topUserRouter = require('./routers/topUserRender.router');
@@ -20,7 +20,11 @@ app.use('/registration_form', registration);
 app.use('/', enterUser);
 
 app.use('/', topUserRouter);
+
+app.use('/', question);
+
 app.use('/decks', deckRender);
+
 
 // app.get('*', (req, res) => res.redirect('/'));
 
