@@ -7,11 +7,11 @@ const registration = require('./routers/registration.router');
 const enterUser = require('./routers/enterUser.router');
 const topUserRouter = require('./routers/topUserRender.router');
 const deckRender = require('./routers/deckRender.router');
-const profileRouter = require('./routers/profile.router')
+const profileRouter = require('./routers/profile.router');
 
 const app = express();
 
-const PORT = process.env.PORT ?? 3001;
+const PORT = process.env.PORT ?? 3000;
 
 app.use(express.json());
 app.use(express.static('public'));
