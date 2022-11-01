@@ -3,7 +3,7 @@ const express = require('express');
 const { User } = require('../db/models');
 
 const registration = require('./routers/registration.router');
-
+const question = require('./routers/questions.router');
 const enterUser = require('./routers/enterUser.router');
 
 const topUserRouter = require('./routers/topUserRender.router');
@@ -23,8 +23,11 @@ app.use('/registration_form', registration);
 app.use('/', enterUser);
 
 app.use('/', topUserRouter);
+
+app.use('/', question);
+
 app.use('/decks', deckRender);
-/// /////////////////////////////////////////////////
+
 app.post('/registration_form', async (req, res) => {
   try {
     app.locals.email = req.body.email;
@@ -51,7 +54,7 @@ app.post('/registration_form', async (req, res) => {
     console.log(error);
   }
 });
-/// //////////////////////////////////////////////
+
 // app.get('*', (req, res) => res.redirect('/'));
 
 app.listen(PORT, () => { console.log('Server is up'); });
