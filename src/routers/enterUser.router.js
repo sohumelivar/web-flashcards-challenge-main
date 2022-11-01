@@ -11,9 +11,10 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
   const user = await User.findOne({ where: { email: req.body.email } });
   const { password, id } = user.get();
-  console.log(user);
+  // console.log('======>', user);
+  // console.log('+++++++', password);
   if (password === req.body.password) {
-    res.redirect('/');
+    res.redirect(`/profile/${id}`);
   } else {
     renderTemplate(Enter, {}, res);
   }

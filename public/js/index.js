@@ -1,11 +1,11 @@
-document.addEventListener('submit', async (event) => {
+const regForm = document.querySelector('#regForm');
+
+regForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const email = event.target.email.value;
   const username = event.target.username.value;
   const password = event.target.password.value;
   const obj = { email, username, password };
-  // console.log('=========>', obj);
-  // const formStat = event.target;
   const response = await fetch('/registration_form', {
     method: 'POST',
     headers: {
@@ -13,18 +13,20 @@ document.addEventListener('submit', async (event) => {
     },
     body: JSON.stringify(obj),
   });
-  // console.log('===>', response);
-  // console.log(await response.json());
-  const a = await response.json();
   if (response.status === 403) {
     window.location.href = '/registration_form?error=incorrect';
   } else {
+    const a = await response.json();
     window.location.href = `/profile/${a.id}`;
   }
 });
 
-// const playBtn = document.querySelector('#playBtn');
-// playBtn.addEventListener('click', () => {
-//   console.log('hi');
-//   window.location.href = '/decks';
-// });
+const playBtn = document.querySelector('#playBtn');
+playBtn?.addEventListener('click', () => {
+  window.location.href = '/decks';
+});
+
+const backBtn = document.querySelector('.back');
+backBtn?.addEventListener('click', () => {
+  window.location.href = '/';
+});

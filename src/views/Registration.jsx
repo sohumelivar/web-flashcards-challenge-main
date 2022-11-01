@@ -5,7 +5,7 @@ module.exports = function Registration({ error }) {
   return (
     <Layout>
       <div className="container">
-        <form method="POST" action="/registration_form" id="regForm">
+        <form id="regForm">
           <div className="mb-3">
             <h3>Registration</h3>
             <label htmlFor="exampleInputEmail1" className="form-label" />
@@ -20,7 +20,7 @@ module.exports = function Registration({ error }) {
             <label htmlFor="exampleInputPassword1" className="form-label" />
             <input placeholder="Enter your password" name="password" type="password" className="form-control" id="exampleInputPassword1" required />
           </div>
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary" id="regBtn">Submit</button>
         </form>
       </div>
     </Layout>
