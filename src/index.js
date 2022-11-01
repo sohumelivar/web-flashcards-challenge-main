@@ -16,16 +16,13 @@ const PORT = process.env.PORT ?? 3001;
 app.use(express.json());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
-app.use('/registration_form', registration);
-
-app.use('/', profileRouter);
-app.use('/', enterUser);
 
 app.use('/', topUserRouter);
-
-// app.use('/', question);
-
+app.use('/registration_form', registration);
+app.use('/enter', enterUser);
+app.use('/profile', profileRouter);
 app.use('/decks', deckRender);
+// app.use('/', question);
 
 app.post('/registration_form', async (req, res) => {
   try {
