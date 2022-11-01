@@ -3,12 +3,11 @@ const express = require('express');
 const { User } = require('../db/models');
 
 const registration = require('./routers/registration.router');
-const question = require('./routers/questions.router');
+// const question = require('./routers/questions.router');
 const enterUser = require('./routers/enterUser.router');
-
 const topUserRouter = require('./routers/topUserRender.router');
-
 const deckRender = require('./routers/deckRender.router');
+const profileRouter = require('./routers/profile.router')
 
 const app = express();
 
@@ -18,13 +17,13 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use('/registration_form', registration);
-// app.use(express.static(path.join(__dirname, '../public')));
 
+app.use('/', profileRouter);
 app.use('/', enterUser);
 
 app.use('/', topUserRouter);
 
-app.use('/', question);
+// app.use('/', question);
 
 app.use('/decks', deckRender);
 
@@ -41,15 +40,6 @@ app.post('/registration_form', async (req, res) => {
     } else {
       res.sendStatus(403);
     }
-
-    // if (findEmail.length === 0) {
-    //   //   // eslint-disable-next-line max-len
-    // res.redirect('/');
-    // res.json({ done: 'yes' });
-    // } else if (findEmail.length > 0) {
-    // res.redirect('/registration_form?error=test');
-    // res.json({ done: 'yes' });
-    // }
   } catch (error) {
     console.log(error);
   }
