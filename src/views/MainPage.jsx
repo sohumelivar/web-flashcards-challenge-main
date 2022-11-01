@@ -11,9 +11,15 @@ module.exports = function MainPage({ title, topPlayers }) {
       </div>
       <div>
         Лучшие игроки:
-        <p></p>
+        <p />
         {topPlayers.map((el) => (
-          <p>{el.username} - {el.best_score}</p>
+          <p>
+            {el.username}
+            {' '}
+            -
+            {' '}
+            {el.best_score}
+          </p>
         ))}
       </div>
     </Layout>

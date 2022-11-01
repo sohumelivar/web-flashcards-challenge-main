@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try {
     const AllPlayers = await User.findAll();
     const topPlayers = AllPlayers.map((user) => user.dataValues);
-    console.log(topPlayers);
+    // console.log(topPlayers);
     renderTemplate(MainPage, { title: 'Main', topPlayers }, res);
   } catch (error) {
     console.log('!!!!_______Error_______!!!! ', error);
