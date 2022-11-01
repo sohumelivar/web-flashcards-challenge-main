@@ -3,7 +3,7 @@ const renderTemplate = require('../lib/renderTemplate');
 const deckComponent = require('../views/Deck');
 const { Deck } = require('../../db/models');
 
-router.get('/', async (req, res) => {
+router.get('/decks', async (req, res) => {
   try {
     const allDecks = await Deck.findAll();
     const decks = allDecks.map((el) => el.dataValues);

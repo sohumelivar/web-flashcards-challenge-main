@@ -23,8 +23,7 @@ app.use('/', topUserRouter);
 
 app.use('/', question);
 
-app.use('/decks', deckRender);
-
+app.use('/', deckRender);
 
 // app.get('*', (req, res) => res.redirect('/'));
 

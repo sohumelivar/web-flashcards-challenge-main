@@ -1,2 +1,1 @@
-const currentUser 
-localStorage.setItem()
+'test'
