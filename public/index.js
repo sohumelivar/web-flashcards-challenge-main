@@ -13,11 +13,18 @@ document.addEventListener('submit', async (event) => {
     },
     body: JSON.stringify(obj),
   });
-  console.log('===>', response);
+  // console.log('===>', response);
   // console.log(await response.json());
+  const a = await response.json();
   if (response.status === 403) {
     window.location.href = '/registration_form?error=incorrect';
   } else {
-    window.location.href = 'https://translate.google.com/';
+    window.location.href = `/profile/${a.id}`;
   }
 });
+
+// const playBtn = document.querySelector('#playBtn');
+// playBtn.addEventListener('click', () => {
+//   console.log('hi');
+//   window.location.href = '/decks';
+// });

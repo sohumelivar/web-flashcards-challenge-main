@@ -1,9 +1,9 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function Enter() {
+module.exports = function Enter({ title }) {
   return (
-    <Layout>
+    <Layout title={title}>
       <div className="container">
         <h3>Sign in</h3>
         <form method="post" action="/enter">
@@ -18,6 +18,4 @@ function Enter() {
       </div>
     </Layout>
   );
-}
-
-module.exports = Enter;
+};
